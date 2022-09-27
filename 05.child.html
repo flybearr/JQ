@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+        <div class="box">box5</div>
+        <div class="box">box6</div>
+        <div class="box">box7</div>
+        <div class="box">box8</div>
+        <div class="box">box9</div>
+        <div class="box">box10</div>
+    </div>
+    <div class="wrap">
+        <span>hi</span>
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+        <div class="box">box5</div>
+        <div class="box">box6</div>
+        <div class="box">box7</div>
+        <div class="box">box8</div>
+        <div class="box">box9</div>
+        <div class="box">box10</div>
+    </div>
+
+    <div class="wrap">
+
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <div class="box">only</div>
+    </div>
+
+    <div>-----------------------------------</div>
+
+    <div class="wrap">
+        <div class="box">only</div>
+      
+    </div>
+
+    <script src="JS/jquery-3.6.1.min.js"></script>
+    <script>
+        $('.box:first-child').css('background', 'red'); //如果塞入其他標籤 會影響
+        // $('.box:last-child').css('background', 'red');
+        // $('.box:nth-last-child(3)').css('background', 'red');
+        $('.box:nth-of-type(9)').css('background', 'blue'); // of type 子層下依照 標籤 來說的第幾個 
+        $('.box:only-of-type').css('background', 'yellow');
+        $('.box:only-child').css('background', 'green'); 
+    </script>
+</body>
+
+</html>
