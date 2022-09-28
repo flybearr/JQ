@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="./images/3.png" alt="">
+    <script src="JS/jquery-3.6.1.min.js"></script>
+    <script>
+        const pic = document.querySelector('img');
+        pic.addEventListener('click', () => {
+            if ($('img').attr('src') == './images/3.png') {
+                $('img').attr('src', './images/2.png');
+            } else {
+                $('img').attr('src', './images/3.png');
+            }
+
+        })
+
+
+
+
+
+        $('img')[0].style.width = '50px';  // [0]抓到原生js的值
+
+
+    </script>
+</body>
+
+</html>

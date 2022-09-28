@@ -24,7 +24,7 @@
                 <li class="item-03">item-03</li>
             </ul>
         </li>
-        <li class="item-3">item-3</li>  
+        <li class="item-3">item-3</li>
     </ul>
 </body>
 <script src="JS/jquery-3.6.1.min.js"></script>
@@ -32,7 +32,29 @@
     // $('.level-1').find('.item-01').css('outline', 'red 5px solid');
     // $('.level-2').children('.item-03').css('outline', 'lightblue 5px solid');
     // $('.level-2').children('li').css('outline', 'coral 5px solid');
-    $('.level-3').closest('.level-2').find('.item-01').css('color','coral').css('font-size','2rem').css('font-weight','700');
+    // $('.level-3').closest('.level-2').find('.item-01').css('color','coral').css('font-size','2rem').css('font-weight','700');
+
+
+    const lis = document.querySelector('li');
+
+
+
+    // lis.forEach(function (element) {
+    //     element.addEventListener('click', function (e) {
+    //         e.stopPropagation();
+    //         console.log('lis');
+    //     })
+    // })
+
+
+
+
+    $('li').click(function (e) {
+        e.stopPropagation();
+        console.log('lis', $(e.currentTarget).text());
+    })
+
+
 </script>
 
 </html>

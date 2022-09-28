@@ -9,6 +9,25 @@
 </head>
 
 <body>
+
+    <ul class="level-1">
+        <li class="item-1">item-1</li>
+        <li class="item-2">item-2
+            <ul class="level-2">
+                <li class="item-01">item-01</li>
+                <li class="item-02">item-02
+                    <ul class="level-3">
+                        <li class="item-001">item-001</li>
+                        <li class="item-002">item-002</li>
+                        <li class="item-003">item-003</li>
+                    </ul>
+                </li>
+                <li class="item-03">item-03</li>
+            </ul>
+        </li>
+        <li class="item-3">item-3</li>
+    </ul>
+
     <div id="sample">hello <span>world</span></div>
     <div id="result"></div>
     <script src="JS/jquery-3.6.1.min.js"></script>
@@ -17,9 +36,17 @@
         // const sam =$('#sample').text();
         // $('#result').text(sam);
 
-        console.log('html:', $('#sample').html());
-        const sam = $('#sample').html();
-        $('#result').text(sam);
+        // console.log('html:', $('#sample').html());
+        // const sam = $('#sample').html();
+        // $('#result').text(sam);
+
+        $('li').each((index, item) => {
+            // console.log('index', index);
+            // console.log('item', item);
+            console.log('item text:', $(item).text());
+        })
+
+
     </script>
 </body>
 
