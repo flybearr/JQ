@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex6</title>
+    <style>
+        .wrap {
+            width: 800px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .train {
+            padding-left: 0;
+            list-style: none;
+            display: flex;
+            width: 500%;
+            transform: translateX(-0px);
+            transition: .5s;
+        }
+
+        .train li img {
+            width: 800px;
+            object-fit: cover;
+        }
+
+        .con {
+            display: flex;
+            width: 800px;
+            height: 400px;
+            justify-content: center;
+            align-items: flex-end;
+            position: absolute;
+            bottom: 0px;
+        }
+
+        .q {
+            width: 40px;
+            height: 10px;
+            border: 1px white solid;
+            /* background-color: rgb(219, 7, 7); */
+            margin: 10px;
+        }
+
+        .con div:nth-child(1) {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="train">
+            <li><img src="./images/1506964794-4efdd2f969559e8b1c92e99f32ded48e.jpg" alt=""></li>
+            <li><img src="./images/pexels-pixabay-258109.jpg" alt=""></li>
+            <li><img src="./images/7822.jpg_wh300.jpg" alt=""></li>
+            <li><img src="./images/Night_shot_of_Golden_Gate_Bridge_and_San_Francisco.jpg.crdownload" alt=""></li>
+            <li><img src="./images/polar_lights_sky_stars-Landscape_Photo_Wallpaper_1920x1200.jpg" alt=""></li>
+        </ul>
+        <div class="con">
+            <div class="q"></div>
+            <div class="q"></div>
+            <div class="q"></div>
+            <div class="q"></div>
+            <div class="q"></div>
+        </div>
+    </div>
+
+
+
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+
+        $('.q').click(function (e) {
+            $(e.target).css('background', 'white');
+            $(e.target).siblings().css('background', 'transparent');
+            console.log($(e.currentTarget).index());
+
+            const index = $(e.currentTarget).index();
+            $('.train').css('transform', `translateX(${index * -800}px)`);
+
+            // if ($(this).index() == 0) {
+            //     $('.train').css('transform', 'translateX(-0px)');
+            // } else if ($(this).index() == 1) {
+            //     $('.train').css('transform', 'translateX(-800px)')
+            // } else if ($(this).index() == 2) {
+            //     $('.train').css('transform', 'translateX(-1600px)')
+            // } else if ($(this).index() == 3) {
+            //     $('.train').css('transform', 'translateX(-2400px)')
+            // } else {
+            //     $('.train').css('transform', 'translateX(-3200px)')
+            // }
+        })
+
+        //找到按下的索引值
+        // $('.q').click(function () {
+        //     console.log('q', $(this).index());
+        // })
+
+
+
+
+    </script>
+
+</body>
+
+</html>

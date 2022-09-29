@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">box1</div>
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+        $('.box').click(function () {
+            console.log('click');
+        })
+        $('.box').dblclick(function () {
+            console.log('dbclick');
+        })
+        $('.box').contextmenu(function () {
+            console.log('contextmenu');
+        })
+        $('.box').mousedown(function () {
+            console.log('mousedown');
+        })
+        $('.box').mouseup(function () {
+            console.log('mouseup');
+        })
+        $('.box').mouseenter(function () {
+            console.log('mouseenter');
+        })
+        $('.box').mouseleave(function () {
+            console.log('mouseleave');
+        })
+        $('.box').mouseout(function () {
+            console.log('mouseout');
+        })
+
+        //-------------------------
+        //滑進滑出
+        $('.box').hover(function () {
+            console.log('hover');
+        }, function () {
+            console.log('hover out');
+        });
+
+
+    </script>
+
+</body>
+
+</html>

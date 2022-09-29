@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="contaniner">
+        <div class="row">
+            <button>click</button>
+            <ul>
+                <li>item1</li>
+                <li>item2</li>
+                <li>item3</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+        // $('ul').append('<li>item4</li>')
+        // $('ul').prepend(' <li>item-1</li>')
+
+
+        // let a = 1;
+        // $('button').click(function () {
+
+
+        //     $('ul').append("<li>item" + a + "</li>");
+        //     $('ul').append(`<li>item${a}</li>`);
+        //     a++;
+        // })
+
+
+
+        //-----------------------------------------
+        $('ul').before(' <li>item-before</li>');
+        $('ul').after(' <li>item-after</li>');
+    </script>
+</body>
+
+</html>

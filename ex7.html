@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <select name="city" id="city">
+            <option value="0">基隆</option>
+            <option value="1">台北</option>
+            <option value="2">新北</option>
+        </select>
+        <select name="area" id="area">
+            <option value="0"></option>
+            <option value="1"></option>
+            <option value="2"></option>
+        </select>
+    </form>
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+        let districtArray = [
+            ['七堵', '中正', '暖暖'],
+            ['中正', '大安', '信義'],
+            ['蘆洲', '三重', '新店'],
+        ];
+
+
+        for (let x of districtArray) {
+            x.forEach((element, index) => {
+                console.log(element);
+            });
+        }
+
+
+        $('#city').click(function (e) {
+
+
+
+            //取得 value值  
+            console.log($(e.target).val());
+            const val = $(e.target).val();
+            //將value值對應到城市陣列
+            const area = districtArray[val];
+
+
+            //新增節點在後面
+            // $('#area').append(`<option value="0">${area[0]}</option>`);
+            // $('#area').append(`<option value="1">${area[1]}</option>`);
+            // $('#area').append(`<option value="2">${area[2]}</option>`);
+
+            //新增文字在option裡面
+            // $('#area option').eq(0).text(`${area[0]}`);
+            // $('#area option').eq(1).text(`${area[1]}`);
+            // $('#area option').eq(2).text(`${area[2]}`);
+
+
+            for (let i = 0; i < area.length; i++) {
+                $('#area option').eq(i).text(`${area[i]}`);
+            }
+        })
+
+
+
+
+    </script>
+
+</body>
+
+</html>
