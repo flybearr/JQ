@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="sayhi">sayhi</button>
+    <button id="on">on</button>
+    <button id="off">off</button>
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+
+        const sayhi = function () {
+            console.log('hi');
+        }
+
+
+        $('#on').click(function () {
+            $('#sayhi').on('click', sayhi)
+        })
+        $('#off').click(function () {
+            console.log('click off');
+            $('#sayhi').off('click', sayhi)
+        })
+
+    </script>
+
+</body>
+
+</html>

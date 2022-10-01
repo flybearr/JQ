@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 300vh;
+            transition: .5s;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 50px;
+            background-color: #ccc;
+            position: fixed;
+            top: 0;
+        }
+
+        .box {
+            height: 100%;
+            /* width: 10%; */
+            /* background-color: pink; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+    </div>
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+            // console.log('scrollTop : ', $(window).scrollTop());
+            // console.log('height : ', $('body').height());
+            // --------------------------------------------------
+
+
+            // scrolltop 是從上方開始算，所以下方會預留 可是畫面 
+            // 故需要 $('body').height()  總高度 扣掉 $(window).height() 最後可視範圍
+            let scrolltop = $(window).scrollTop();
+            let bodyhight = $('body').height();
+            let windowhight = $(window).height();
+            let x = (scrolltop / (bodyhight - windowhight)) * 100;
+            // let x = ($(window).scrollTop() / ($('body').height() - $(window).height())) * 100;
+            let a = Math.floor(x) + '%';
+            console.log(a);
+            $('.box').css('background', 'pink').css('width', a);
+
+            if (x > 50) {
+                $('body').css('background', 'tomato');
+            } else {
+                $('body').css('background', 'transparent');
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>
