@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        table {
+            margin: 100px auto;
+            width: 400px;
+            height: 400px;
+            border: 2px black solid;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        th {
+            border: 2px black solid;
+            text-align: center;
+        }
+
+        input{
+            width: 20px;
+            height: 20px;
+        }
+
+        td {
+            border: 2px black solid;
+            text-align: center;
+        }
+
+        /* tr:nth-child(odd) {
+            background-color: #ccc;
+        } */
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <button></button>
+        <table>
+
+            <tr>
+                <th> <input type="checkbox"> </th>
+                <th>一龍馬</th>
+                <th>0912345678</th>
+                <th>elonma@gmail.com</th>
+            </tr>
+            <tr>
+                <td> <input type="checkbox"></td>
+                <td>一龍馬</td>
+                <td>0912345678</td>
+                <td>elonma@gmail.com</td>
+            </tr>
+            <tr>
+                <td> <input type="checkbox"></td>
+                <td>一龍馬</td>
+                <td>0912345678</td>
+                <td>elonma@gmail.com</td>
+            </tr>
+            <tr>
+                <td> <input type="checkbox"></td>
+                <td>一龍馬</td>
+                <td>0912345678</td>
+                <td>elonma@gmail.com</td>
+            </tr>
+        </table>
+    </form>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+
+// $('.autobg').each(function (index, currentElement) {
+//     currentElement.style.backgroundImage = getRBGA();
+// });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+
+        $('table').click(function (e) {
+            if ($(e.target).prop('checked')) {
+                $(e.target).closest('tr').css('background', 'lightblue');
+            } else {
+                $(e.target).closest('tr').css('background', 'transparent');
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>
