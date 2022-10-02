@@ -35,6 +35,7 @@
             justify-content: center;
             align-items: flex-end;
             position: absolute;
+
             bottom: 0px;
         }
 
@@ -49,6 +50,30 @@
         .con div:nth-child(1) {
             background-color: #fff;
         }
+
+        .arrow {
+            width: 20px;
+            height: 20px;
+            border-top: solid red 10px;
+            border-right: solid red 10px;
+            /* border: solid red 2px; */
+            display: inline-block;
+        }
+
+        .right {
+            transform: rotate(45deg);
+            position: absolute;
+            right: 20px;
+            top: 200px;
+
+        }
+
+        .left {
+            transform: rotate(225deg);
+            position: absolute;
+            left: 20px;
+            top: 200px;
+        }
     </style>
 </head>
 
@@ -58,8 +83,8 @@
             <li><img src="./images/1506964794-4efdd2f969559e8b1c92e99f32ded48e.jpg" alt=""></li>
             <li><img src="./images/pexels-pixabay-258109.jpg" alt=""></li>
             <li><img src="./images/7822.jpg_wh300.jpg" alt=""></li>
-            <li><img src="./images/Night_shot_of_Golden_Gate_Bridge_and_San_Francisco.jpg.crdownload" alt=""></li>
-            <li><img src="./images/polar_lights_sky_stars-Landscape_Photo_Wallpaper_1920x1200.jpg" alt=""></li>
+            <li><img src="./images/7822.jpg_wh300.jpg" alt=""></li>
+            <li><img src="./images/1506964794-4efdd2f969559e8b1c92e99f32ded48e.jpg" alt=""></li>
         </ul>
         <div class="con">
             <div class="q"></div>
@@ -67,7 +92,12 @@
             <div class="q"></div>
             <div class="q"></div>
             <div class="q"></div>
+            <div class="arrow left"></div>
+            <div class="arrow right"></div>
         </div>
+
+
+
     </div>
 
 
@@ -75,13 +105,64 @@
     <script src="./JS/jquery-3.6.1.min.js"></script>
     <script>
 
+
+        let index = 0;
+
+        const right = function () {
+            $('.right').click(function () {
+                index++;
+                if (index > 4) {
+                    index = 0;
+                    $('.train').css('transform', `translateX(${index * -800}px)`);
+                    $('.q').eq(index).css('background', 'white');
+                    $('.q').eq(index).siblings().css('background', 'transparent');
+                } else {
+                    $('.train').css('transform', `translateX(${index * -800}px)`);
+                    $('.q').eq(index).css('background', 'white');
+                    $('.q').eq(index).siblings().css('background', 'transparent');
+                }
+
+
+            })
+        }
+
+        const left = function () {
+            $('.left').click(function () {
+                index--;
+                if (index < 0) {
+                    index = 4;
+                    $('.train').css('transform', `translateX(${index * -800}px)`);
+                    $('.q').eq(index).css('background', 'white');
+                    $('.q').eq(index).siblings().css('background', 'transparent');
+                } else {
+                    $('.train').css('transform', `translateX(${index * -800}px)`);
+                    $('.q').eq(index).css('background', 'white');
+                    $('.q').eq(index).siblings().css('background', 'transparent');
+                }
+
+
+            })
+        }
+
+
+        right();
+        left();
+
+
+        const q = document.querySelectorAll('.q');
+
+
+
+
+
         $('.q').click(function (e) {
             $(e.target).css('background', 'white');
             $(e.target).siblings().css('background', 'transparent');
-            console.log($(e.currentTarget).index());
+            // console.log($(e.currentTarget).index());
 
-            const index = $(e.currentTarget).index();
-            $('.train').css('transform', `translateX(${index * -800}px)`);
+            let index1 = $(e.target).index();
+            // console.log($('.q'));
+            $('.train').css('transform', `translateX(${index1 * -800}px)`);
 
             // if ($(this).index() == 0) {
             //     $('.train').css('transform', 'translateX(-0px)');
@@ -94,12 +175,25 @@
             // } else {
             //     $('.train').css('transform', 'translateX(-3200px)')
             // }
+
+            if (index1 !== index) {
+                index = index1;
+            }
+
+
+
+
+
+
+
         })
 
+
+
         //找到按下的索引值
-        // $('.q').click(function () {
-        //     console.log('q', $(this).index());
-        // })
+        $('.q').click(function (e) {
+            console.log('q', $(e.target).index());
+        })
 
 
 
