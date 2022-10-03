@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .wrap {
+            width: 800px;
+            height: 400px;
+            background-color: #ccc;
+            position: relative;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            /* bottom: 300px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row ">
+            <div class="wrap mx-auto">
+                <div class="box">box</div>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-12 text-center">
+                <button id="up" class="btn btn-info ">
+                    <i class="fa-solid fa-caret-up"></i>
+                </button>
+            </div>
+            <div class="col-12 text-center">
+                <button id="left" class="btn btn-info mx-3">
+                    <i class="fa-solid fa-caret-left"></i>
+                </button>
+
+                <button id="right" class="btn btn-info mx-3">
+                    <i class="fa-solid fa-caret-right"></i>
+                </button>
+            </div>
+            <div class="col-12 text-center">
+                <button id="down" class="btn btn-info">
+                    <i class="fa-solid fa-caret-down"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+
+// $('.autobg').each(function (index, currentElement) {
+//     currentElement.style.backgroundImage = getRBGA();
+// });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+
+
+
+        function right() {
+            const maxleft = $('.wrap').width() - $('.box').width();
+            if (parseInt($('.box').css('left')) < maxleft) {
+                $('.box').css('left', '+=100');
+            }
+        }
+        function left() {
+            const maxleft = $('.wrap').width() - $('.box').width();
+            if (parseInt($('.box').css('right')) < maxleft) {
+                $('.box').css('left', '-=100');
+            }
+        }
+        function down() {
+            const maxtop = $('.wrap').height() - $('.box').height();
+            if (parseInt($('.box').css('top')) < maxtop) {
+                $('.box').css('top', '+=100');
+            }
+        }
+        function up() {
+            const maxtop = $('.wrap').height() - $('.box').height();
+            if (parseInt($('.box').css('bottom')) < maxtop) {
+                $('.box').css('top', '-=100');
+            }
+        }
+
+        $('#right').click(right);
+        $('#left').click(left);
+        $('#up').click(up);
+        $('#down').click(down);
+
+
+        // $('#right').click(function () {
+        //     // console.log('right', $('.box').css('left'));
+        //     const maxleft = $('.wrap').width() - $('.box').width();
+        //     if (parseInt($('.box').css('left')) < maxleft) {
+        //         $('.box').css('left', '+=100');
+        //     }
+
+        // })
+
+
+        // $('#left').click(function () {
+        //     // console.log('right', $('.box').css('left'));
+        //     const maxleft = $('.wrap').width() - $('.box').width();
+        //     if (parseInt($('.box').css('right')) < maxleft) {
+        //         $('.box').css('left', '-=100');
+        //     }
+
+        // })
+
+        // $('#down').click(function () {
+        //     // console.log('right', $('.box').css('left'));
+        //     const maxtop = $('.wrap').height() - $('.box').height();
+        //     if (parseInt($('.box').css('top')) < maxtop) {
+        //         $('.box').css('top', '+=100');
+        //     }
+
+        // })
+
+        // $('#up').click(function () {
+        //     // console.log('right', $('.box').css('left'));
+        //     const maxtop = $('.wrap').height() - $('.box').height();
+        //     if (parseInt($('.box').css('bottom')) < maxtop) {
+        //         $('.box').css('top', '-=100');
+        //     }
+
+        // })
+
+
+
+        $(document).on('keydown', function (e) {
+            console.log(e.keyCode);
+            if (e.keyCode === 39) {
+                right();
+            }
+
+            if (e.keyCode === 37) {
+                left();
+            }
+            if (e.keyCode === 38) {
+                up();
+            }
+            if (e.keyCode === 40) {
+                down();
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>

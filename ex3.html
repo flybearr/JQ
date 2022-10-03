@@ -36,6 +36,7 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
+                <button id="show" type="button" class="btn btn-primary">password show</button>
                 <button id="btn" type="button" class="btn btn-primary">auto input</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -76,6 +77,16 @@
             $('#username').val('nelson');
             $('#exampleInputEmail1').val('goodgood0331@gmail.com');
             $('#exampleInputPassword1').val('999999999');
+        })
+
+
+        $('#show').click(function () {
+            if ($('#exampleInputPassword1').attr('type') == 'password') {
+                $('#exampleInputPassword1').attr('type', 'text');
+            } else {
+                $('#exampleInputPassword1').attr('type', 'password');
+            }
+
         })
     </script>
 

@@ -39,7 +39,7 @@
 
         $('#city').click(function (e) {
 
-
+            $('#area').empty();
 
             //取得 value值  
             console.log($(e.target).val());
@@ -53,16 +53,24 @@
             // $('#area').append(`<option value="1">${area[1]}</option>`);
             // $('#area').append(`<option value="2">${area[2]}</option>`);
 
+
+
+            for (let i = 0; i < area.length; i++) {
+                $('#area').append(`<option value="${i}">${area[i]}</option>`);
+            }
+        })
+
+
             //新增文字在option裡面
             // $('#area option').eq(0).text(`${area[0]}`);
             // $('#area option').eq(1).text(`${area[1]}`);
             // $('#area option').eq(2).text(`${area[2]}`);
 
 
-            for (let i = 0; i < area.length; i++) {
-                $('#area option').eq(i).text(`${area[i]}`);
-            }
-        })
+        //     for (let i = 0; i < area.length; i++) {
+        //         $('#area option').eq(i).text(`${area[i]}`);
+        //     }
+        // })
 
 
 

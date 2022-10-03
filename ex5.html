@@ -23,7 +23,7 @@
             text-align: center;
         }
 
-        input{
+        input {
             width: 20px;
             height: 20px;
         }
@@ -102,10 +102,10 @@
     <script src="./JS/jquery-3.6.1.min.js"></script>
     <script>
 
-        $('table').click(function (e) {
+        $('input').click(function (e) {
             if ($(e.target).prop('checked')) {
                 $(e.target).closest('tr').css('background', 'lightblue');
-            } else {
+            } else if (!$(e.target).prop('checked')) {
                 $(e.target).closest('tr').css('background', 'transparent');
             }
         })

@@ -10,8 +10,8 @@
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <style>
         .box {
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
         }
     </style>
 </head>
@@ -19,7 +19,7 @@
 <body>
 
     <div class="container">
-        <div class="row">
+        <div class="row d-flex ">
             <div class="box autobg">box1</div>
             <div class="box autobg">box2</div>
             <div class="box autobg">box3</div>
@@ -66,9 +66,19 @@
     <script src="./JS/jquery-3.6.1.min.js"></script>
     <script>
         $('.row').click(function (e) {
-            $(e.target).nextUntil().css('background', 'blue');
+            $(e.target).css('background', 'blue').nextAll().css('background', 'blue');
         })
+        
+
+
+
+
+        //字串加數字 會變字串  例 '10'+1 ='101'  但減法 字串 - 數字  會變成 數字
     </script>
+
+
+
+
 
 </body>
 

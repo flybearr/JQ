@@ -19,7 +19,7 @@
         }
 
         .box {
-            border: 1px black solid;
+            border: 5px black solid;
             width: 200px;
             height: 200px;
             border-radius: 50%;
@@ -97,8 +97,8 @@
     <script src="./JS/jquery-3.6.1.min.js"></script>
     <script>
         $('.train').click(function (e) {
-            $(e.target).closest('.box').css('border', '2px red solid').css('border-radius', '50%')
-            $(e.target).closest('.box').siblings().css('border', '1px black solid').css('border-radius', '50%')
+            $(e.target).closest('.box').css('border', '5px red solid').css('border-radius', '50%')
+            $(e.target).closest('.box').siblings().css('border', '5px black solid').css('border-radius', '50%')
         })
     </script>
 
