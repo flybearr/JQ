@@ -17,6 +17,7 @@
             height: 400px;
             background-color: #ccc;
             position: relative;
+
         }
 
         .box {
@@ -26,6 +27,7 @@
             position: absolute;
             left: 0;
             top: 0;
+            transition: .5s;
 
             /* bottom: 300px; */
         }
@@ -97,17 +99,90 @@
     <script>
 
 
+        let index = 0;
+        let myinterval = null;
+        let boxleft = parseInt($('.box').css('left'));
+        let speed = 10;
 
-        function right() {
-            const maxleft = $('.wrap').width() - $('.box').width();
-            if (parseInt($('.box').css('left')) < maxleft) {
-                $('.box').css('left', '+=100');
-            }
+        function start(cssname, direction) {
+            myinterval = setInterval(() => {
+
+
+                // const maxleft = $('.wrap').width() - $('.box').width();
+                // const minleft = 0;
+
+                $('.box').css(cssname, direction + speed);
+                const minLeft = 0;
+                // if (boxleft <= maxleft) {
+                //     right(boxleft);
+                // } else {
+                //     boxleft = maxleft;
+                // }
+            }, 100)
         }
+
+
+
+
+
+
+
+        function stop() {
+            clearInterval(myinterval);
+        }
+
+
+
+
+
+        function right(boxleft) {
+            $('.box').css('left', boxleft);
+        }
+
+
+        $('#right').mousedown(() => {
+            const boxLeft = parseInt($('.box').css('left'));
+            const maxLeft = $('.wrap').width() - $('.box').width();
+            start('left', '+=', boxLeft, maxLeft, '<=');
+        });
+        $('#right').mouseup(stop);
+
+
+
+
+        $('#left').mousedown(() => {
+            const boxLeft = parseInt($('.box').css('left'));
+            const minLeft = 0;
+            start('left', '-=', boxLeft, minLeft, '>=');
+        });
+        $('#left').mouseup(stop);
+
+
+
+
+        $('#up').mousedown(() => {
+            start('top', '-=');
+        });
+        $('#up').mouseup(stop);
+
+
+
+
+
+        $('#down').mousedown(() => {
+            start('top', '+=');
+        });
+        $('#down').mouseup(stop);
+
+
+
+
+
         function left() {
             const maxleft = $('.wrap').width() - $('.box').width();
             if (parseInt($('.box').css('right')) < maxleft) {
                 $('.box').css('left', '-=100');
+
             }
         }
         function down() {
@@ -123,10 +198,10 @@
             }
         }
 
-        $('#right').click(right);
-        $('#left').click(left);
-        $('#up').click(up);
-        $('#down').click(down);
+        // $('#right').click(right);
+        // $('#left').click(left);
+        // $('#up').click(up);
+        // $('#down').click(down);
 
 
         // $('#right').click(function () {
