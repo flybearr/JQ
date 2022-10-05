@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        section {
+            height: 100vh;
+        }
+
+        .section3 {
+            height: 300vh;
+        }
+
+        .ad-row {
+            position: sticky;
+            top: 0;
+
+        }
+
+        .ad-imgs-wrap {
+            position: absolute;
+        }
+
+        .ad-imgs-wrap img {
+            height: 100vh;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="autobg section1">section1</section>
+    <section class="autobg section2">section2</section>
+    <section class="autobg section3">
+        <div class="ad-row">
+            <div class="ad-imgs-wrap ad1"><img
+                    src="https://i1.wp.com/hojenjen.com/wp-content/uploads/2017/10/1506964794-4efdd2f969559e8b1c92e99f32ded48e.jpg"
+                    alt=""></div>
+            <div class="ad-imgs-wrap ad2"><img
+                    src="https://d1hjkbq40fs2x4.cloudfront.net/2019-12-23/files/canon-landscape-photography-preparation-tips_1968-2.jpg"
+                    alt=""></div>
+            <div class="ad-imgs-wrap ad3"><img
+                    src="https://cdntwrunning.biji.co/600_e236ddf03b18db106eb4b44e2105ffc0.jpg" alt=""></div>
+        </div>
+    </section>
+    <section class="autobg section4">section4</section>
+    <section class="autobg section5">section5</section>
+    <section class="autobg section6">section6</section>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+
+    // $('.autobg').each(function (index, currentElement) {
+    //     currentElement.style.backgroundImage = getRBGA();
+    // });
+    </script>
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+
+            const nowscroll = $(window).scrollTop();
+            const section3_top = $('.section3').offset().top;
+            const windowH = $(window).height();
+            const section3_top2 = (section3_top + windowH);
+            const section3_top3 = (section3_top + windowH * 2);
+
+            if (nowscroll <= section3_top) {
+                const percentage = 0;
+
+                const transX = -120 * percentage;
+                const transY = -20 * percentage;
+                const rotateDeg = 20 * percentage;
+
+
+                $('.ad3').css('transform', `translate(${transX}%, ${transY}%) rotate(${rotateDeg}deg)`)
+            }
+
+
+
+            if (nowscroll > section3_top) {
+                const percentage = (nowscroll - section3_top) / windowH;
+
+                const transX = -120 * percentage;
+                const transY = -20 * percentage;
+                const rotateDeg = 20 * percentage;
+
+
+                $('.ad3').css('transform', `translate(${transX}%, ${transY}%) rotate(${rotateDeg}deg)`)
+            }
+            //------------------------------------------------------
+
+
+            if (nowscroll <= section3_top2) {
+                const percentage = 0;
+
+                const transX = -120 * percentage;
+                const transY = -20 * percentage;
+                const rotateDeg = 20 * percentage;
+
+
+                $('.ad2').css('transform', `translate(${transX}%, ${transY}%) rotate(${rotateDeg}deg)`)
+            }
+
+
+
+            if (nowscroll > section3_top2) {
+                const percentage = (nowscroll - section3_top2) / windowH;
+
+                const transX = -120 * percentage;
+                const transY = -20 * percentage;
+                const rotateDeg = 20 * percentage;
+
+
+                $('.ad2').css('transform', `translate(${transX}%, ${transY}%) rotate(${rotateDeg}deg)`)
+            }
+
+
+            //--------------------------------------------
+            if (nowscroll <= section3_top3) {
+                const percentage = 0;
+
+                const transX = -120 * percentage;
+                const transY = -20 * percentage;
+                const rotateDeg = 20 * percentage;
+
+
+                $('.ad1').css('transform', `translate(${transX}%, ${transY}%) rotate(${rotateDeg}deg)`)
+            }
+
+
+
+            if (nowscroll > section3_top3) {
+                const percentage = (nowscroll - section3_top3) / windowH;
+
+                const transX = -120 * percentage;
+                const transY = -20 * percentage;
+                const rotateDeg = 20 * percentage;
+
+
+                $('.ad1').css('transform', `translate(${transX}%, ${transY}%) rotate(${rotateDeg}deg)`)
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

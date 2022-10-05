@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        section:not(.section3) {
+            height: 100vh;
+            font-size: 10rem;
+        }
+
+        .d-flex {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .left {
+            flex-grow: 1;
+
+        }
+
+        .right {
+            position: sticky;
+            top: 0;
+        }
+
+        .box {
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="autobg section1">section1</section>
+    <section class="autobg section2">section2</section>
+    <section class="autobg section3">
+        <div class="d-flex">
+            <div class="left">
+                <div class="box box1">box</div>
+                <div class="box box2">box</div>
+                <div class="box box3">box</div>
+                <div class="box box4">box</div>
+                <div class="box box5">box</div>
+                <div class="box box6">box</div>
+                <div class="box box7">box</div>
+                <div class="box box8">box</div>
+                <div class="box box9">box</div>
+                <div class="box box10">box</div>
+            </div>
+            <div class="right">
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+    </section>
+    <section class="autobg section4">section4</section>
+    <section class="autobg section5">section5</section>
+    <section class="autobg section6">section6</section>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+
+// $('.autobg').each(function (index, currentElement) {
+//     currentElement.style.backgroundImage = getRBGA();
+// });
+    </script>
+</body>
+
+</html>
