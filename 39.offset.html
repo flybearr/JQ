@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            width: 100%;
+            height: 900px;
+        }
+
+        .wrap {
+            display: flex;
+            transition: .5s;
+            transform: translateX(-120%);
+        }
+
+        .wrap.show {
+            transform: translate(0%);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="section1 autobg">section1</section>
+    <section class="section2 autobg">
+        <div class="wrap">
+            <div class="img-wrap"><img
+                    src="https://upload.wikimedia.org/wikipedia/zh/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg"
+                    alt=""></div>
+            <div class="img-wrap"><img
+                    src="https://upload.wikimedia.org/wikipedia/zh/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg"
+                    alt=""></div>
+            <div class="img-wrap"><img
+                    src="https://upload.wikimedia.org/wikipedia/zh/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg"
+                    alt=""></div>
+        </div>
+    </section>
+    <section class="section3 autobg">section3</section>
+    <section class="section4 autobg">section4</section>
+    <section class="section5 autobg">section5</section>
+    <section class="section6 autobg">section6</section>
+    <section class="section7 autobg">section7</section>
+    <section class="section8 autobg">section8</section>
+    <section class="section9 autobg">section9</section>
+    <section class="section10 autobg">section10</section>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script>
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+        }
+
+        function getRBGA() {
+            return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+        }
+
+        const elements = document.querySelectorAll('.autobg');
+
+        Array.from(elements).forEach((element, index) => {
+            element.style.backgroundImage = getRBGA();
+        });
+
+    // $('.autobg').each(function (index, currentElement) {
+    //     currentElement.style.backgroundImage = getRBGA();
+    // });
+    </script>
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+        console.log($('.section2').offset().top);
+
+
+        $(window).scroll(function () {
+            const scrolltop = $(window).scrollTop();
+            if (scrolltop >= $('.section2').offset().top - $(window).height() / 2) {
+                $('.section2').css('background', 'pink')
+                $('.wrap').addClass('show')
+            } else {
+                $('.section2').css('background', 'yellow')
+                $('.wrap').removeClass('show');
+            }
+
+
+
+        })
+
+    </script>
+
+</body>
+
+</html>

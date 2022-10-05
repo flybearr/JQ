@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .fontS {
+            font-size: .8rem;
+        }
+
+        .fontM {
+            font-size: 1.5rem;
+        }
+
+        .fontL {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button id="S" type="button" class="btn btn-secondary">S</button>
+                <button id="M" type="button" class="btn btn-secondary">M</button>
+                <button id="L" type="button" class="btn btn-secondary">L</button>
+            </div>
+        </div>
+        <div class="row">
+            <h2>jQuery</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit commodi quae sequi quasi perspiciatis
+                facilis cum, corrupti esse cumque iure possimus accusantium repellat deleniti debitis quas modi quis
+                magni incidunt.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit commodi quae sequi quasi perspiciatis
+                facilis cum, corrupti esse cumque iure possimus accusantium repellat deleniti debitis quas modi quis
+                magni incidunt.</p>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+        $('.btn-group button').click(function () {
+            console.log($(this).is(':contains(S)'));
+            console.log($(this).is(':contains(M)'));
+            console.log($(this).is(':contains(L)'));
+
+
+
+            let addClassStr = ' ';
+            let rmClassStr = ' ';
+
+
+            if ($(this).is(':contains(S)')) {
+                addClassStr = 'fontS';
+                rmClassStr = 'fontM fontL'
+            }
+            if ($(this).is(':contains(M)')) {
+                addClassStr = 'fontM';
+                rmClassStr = 'fontS fontL'
+            }
+            if ($(this).is(':contains(L)')) {
+                addClassStr = 'fontL';
+                rmClassStr = 'fontM fontS'
+            }
+            rerender(this, rmClassStr, addClassStr);
+        })
+
+        function rerender(btn, rmClassStr, addClassStr) {
+            $('p').removeClass(rmClassStr).addClass(addClassStr);
+            $(btn).addClass('active').siblings().removeClass('active')
+        }
+
+
+
+
+        // $('#S').click(function (e) {
+        //     $(e.target).addClass('active').siblings().removeClass('active');
+        //     $('p').addClass('fontS').removeClass('fontM').removeClass('fontL');
+
+        // })
+        // $('#M').click(function (e) {
+        //     $(e.target).addClass('active').siblings().removeClass('active');
+        //     $('p').addClass('fontM').removeClass('fontS').removeClass('fontL');
+
+        // })
+        // $('#L').click(function (e) {
+        //     $(e.target).addClass('active').siblings().removeClass('active');
+        //     $('p').addClass('fontL').removeClass('fontS').removeClass('fontM');
+        // })
+    </script>
+
+</body>
+
+</html>
