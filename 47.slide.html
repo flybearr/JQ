@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>click</button>
+    <div class="slide1">
+
+        <h1>標題</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi fugit eaque voluptate soluta commodi
+            veritatis nobis ipsa. Ad voluptate tempora, voluptas saepe modi doloremque repellat repudiandae, molestiae,
+            fugiat delectus facere.</p>
+    </div>
+    <script src="./JS/jquery-3.6.1.min.js"></script>
+    <script>
+        $("button").click(function () {
+            $("div.slide1").slideToggle(1000);
+        });
+
+    </script>
+
+</body>
+
+</html>
